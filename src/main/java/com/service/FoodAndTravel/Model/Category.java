@@ -7,16 +7,13 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Table
-public class AddressTravel {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String address;
-    private String image;
     private String name;
-    private int status;
-    private long categoryId;
+    private String code;
 }

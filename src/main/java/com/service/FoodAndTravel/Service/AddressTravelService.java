@@ -24,13 +24,13 @@ public class AddressTravelService {
         }
     }
 
-    public AddressTravel getById(long id){
-        try{
-            AddressTravel addressTravel =  addressTravelRepo.findById(id).get();
-            return addressTravel;
-        } catch (Exception e){
-            System.out.println(e);
-            return null;
+    public AddressTravel getById(long id) throws Exception {
+        AddressTravel addressTravel = addressTravelRepo.findById(id).orElse(null);
+        if (addressTravel == null){
+            throw new Exception();
         }
+        return addressTravel;
     }
+
+//    public
 }

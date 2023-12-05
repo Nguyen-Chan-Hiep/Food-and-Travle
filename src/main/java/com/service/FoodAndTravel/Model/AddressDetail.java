@@ -5,18 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Table
-public class AddressTravel {
+public class AddressDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String address;
+    private long addressId;
     private String image;
-    private String name;
-    private int status;
-    private long categoryId;
+    private String description;
+    private double ticketPrice;
+    private Date openTime;
+    private Date closeTime;
 }
