@@ -1,36 +1,41 @@
 package com.service.FoodAndTravel.Service;
 
+import com.service.FoodAndTravel.Config.PersonalException;
+import com.service.FoodAndTravel.Constants.Constants;
 import com.service.FoodAndTravel.Model.AddressTravel;
 import com.service.FoodAndTravel.Reponsitory.AddressTravelRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Date;
+
 
 @Service
 @Transactional
-public class AddressTravelService {
+public class AddressTravelService extends BaseService<AddressTravelRepo, AddressTravel> {
+
     @Autowired
-    private AddressTravelRepo addressTravelRepo;
+    private AddressTravelRepo repo;
 
-    public List<AddressTravel> getAll(){
-        try{
-            List<AddressTravel> addressTravels = addressTravelRepo.findAll();
-            return addressTravels;
-        } catch (Exception e){
-            System.out.println(e);
-            return null;
-        }
+    public AddressTravelService(AddressTravelRepo addressTravelRepo) {
+        super(addressTravelRepo);
     }
 
-    public AddressTravel getById(long id) throws Exception {
-        AddressTravel addressTravel = addressTravelRepo.findById(id).orElse(null);
-        if (addressTravel == null){
-            throw new Exception();
+    @Override
+    public Object create(AddressTravel o) {
+        try {
+            AddressTravel addressTravel = repo.checkExist(o.getName(), o.getAddress(), Constants.ACTIVE_STATUS, o.getCategoryId());
+            if (addressTravel != null){
+                return new PersonalException("error", "Address travel is already exists");
+            }
+            o.setCreateDate(new Date());
+            o.setCreateBy("system");
+            o.setStatus(1);
+            o = repo.save(o);
+            return o;
+        } catch (Exception e) {
+            return new PersonalException("error", e.getMessage());
         }
-        return addressTravel;
     }
-
-//    public
 }

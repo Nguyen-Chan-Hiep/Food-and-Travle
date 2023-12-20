@@ -12,10 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
-public class AddressDetail {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class AddressDetail extends Base{
     private long addressId;
     private String image;
     private String description;
