@@ -25,7 +25,7 @@ public class AddressTravelService extends BaseService<AddressTravelRepo, Address
     @Override
     public Object create(AddressTravel o) {
         try {
-            AddressTravel addressTravel = repo.checkExist(o.getName(), o.getAddress(), Constants.ACTIVE_STATUS, o.getCategoryId());
+            AddressTravel addressTravel = repo.checkExist(o.getName(), o.getAddress(), Constants.ACTIVE_STATUS, Constants.Category.TRAVEL.toString());
             if (addressTravel != null){
                 return new PersonalException("error", "Address travel is already exists");
             }

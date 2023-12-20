@@ -15,5 +15,5 @@ public class AddressTravel extends Base {
     private String image;
     private String name;
     private int status;
-    private long categoryId;
+    private String category;
 }

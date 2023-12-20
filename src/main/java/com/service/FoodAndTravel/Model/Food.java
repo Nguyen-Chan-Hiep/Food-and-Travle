@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table
 public class Food extends Base{
-    private long categoryId;
+    private String category;
     private String name;
     private String image;
     private String description;

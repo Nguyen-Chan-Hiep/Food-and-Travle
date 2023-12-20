@@ -11,9 +11,9 @@ public interface AddressTravelRepo extends JpaRepository<AddressTravel, Long> {
     @Query("select at from AddressTravel at where at.name like :name " +
             "and at.address like :address " +
             "and at.status = :status " +
-            "and at.categoryId = :categoryId")
+            "and at.category like :category")
     AddressTravel checkExist(@Param("name") String name,
                                  @Param("address") String address,
                                  @Param("status") int status,
-                                 @Param("categoryId") long categoryId);
+                                 @Param("category") String categoryCode);
 }
