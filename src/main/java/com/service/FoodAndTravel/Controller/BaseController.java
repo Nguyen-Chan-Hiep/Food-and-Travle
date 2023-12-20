@@ -2,10 +2,7 @@ package com.service.FoodAndTravel.Controller;
 
 import com.service.FoodAndTravel.Model.Base;
 import com.service.FoodAndTravel.Service.BaseService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,7 +25,17 @@ public abstract class BaseController<Service extends BaseService, Obj extends Ba
 
     @PostMapping("/create")
     public Object create(@RequestBody Obj obj){
-        return service.create(obj);
+        return this.service.create(obj);
+    }
+
+    @PutMapping("/update")
+    public Object update(@RequestBody Obj obj){
+        return this.service.update(obj);
+    }
+
+    @PutMapping("/delete")
+    public Object delete(@RequestBody Obj obj){
+        return this.service.delete(obj);
     }
 
 }
