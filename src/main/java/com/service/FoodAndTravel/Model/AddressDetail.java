@@ -7,14 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
-public class AddressDetail extends Base{
-    private long addressId;
-    private String image;
+public class AddressDetail extends Base {
+    private String images;
     private String description;
     private double ticketPrice;
     private Date openTime;

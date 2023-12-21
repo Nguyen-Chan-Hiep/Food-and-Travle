@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table
-public class AddressTravel extends Base {
+public class AddressTravel extends AddressDetail {
     private String address;
     private String image;
     private String name;
