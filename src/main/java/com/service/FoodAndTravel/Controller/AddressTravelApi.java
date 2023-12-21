@@ -1,6 +1,5 @@
 package com.service.FoodAndTravel.Controller;
 
-import com.service.FoodAndTravel.Model.AddressDetail;
 import com.service.FoodAndTravel.Model.AddressTravel;
 import com.service.FoodAndTravel.Service.AddressTravelService;
 import org.springframework.beans.factory.annotation.Autowired;

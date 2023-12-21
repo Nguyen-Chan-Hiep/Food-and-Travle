@@ -2,7 +2,6 @@ package com.service.FoodAndTravel.Service;
 
 import com.service.FoodAndTravel.Config.PersonalException;
 import com.service.FoodAndTravel.Constants.Constants;
-import com.service.FoodAndTravel.Model.AddressDetail;
 import com.service.FoodAndTravel.Model.AddressTravel;
 import com.service.FoodAndTravel.Reponsitory.AddressTravelRepo;
 import jakarta.transaction.Transactional;
