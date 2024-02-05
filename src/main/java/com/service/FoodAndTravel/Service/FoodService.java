@@ -1,7 +1,7 @@
 package com.service.FoodAndTravel.Service;
 
-import com.service.FoodAndTravel.Model.Food;
-import com.service.FoodAndTravel.Reponsitory.FoodRepo;
+import com.service.FoodAndTravel.Model.Food.Food;
+import com.service.FoodAndTravel.Reponsitory.FoodReponsitory.FoodRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

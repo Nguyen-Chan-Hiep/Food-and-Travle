@@ -1,20 +1,22 @@
-package com.service.FoodAndTravel.Model;
+package com.service.FoodAndTravel.DTO;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@EqualsAndHashCode(callSuper = true)
-@Entity
+import java.util.List;
+
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table
-public class Food extends Base{
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+public class FoodDTO extends BaseDTO{
     private String category;
     private String name;
+    private long parentId;
     private String image;
     private String description;
+    private FoodDetailDTO detail;
+    private List<FoodDTO> children;
 }

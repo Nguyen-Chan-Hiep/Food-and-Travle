@@ -1,4 +1,4 @@
-package com.service.FoodAndTravel.Model;
+package com.service.FoodAndTravel.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,14 +7,16 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class AddressDetail extends Base {
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+public class AddressDetailDTO extends BaseDTO {
+    private long addressId;
     private String images;
-    private String description;
     private double ticketPrice;
     private Date openTime;
     private Date closeTime;
+    private String highlights;
+    private String detailDescription;
 }
