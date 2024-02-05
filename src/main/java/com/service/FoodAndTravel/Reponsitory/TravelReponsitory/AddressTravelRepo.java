@@ -1,10 +1,13 @@
-package com.service.FoodAndTravel.Reponsitory;
+package com.service.FoodAndTravel.Reponsitory.TravelReponsitory;
 
-import com.service.FoodAndTravel.Model.AddressTravel;
+import com.service.FoodAndTravel.Model.Travel.AddressTravel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface AddressTravelRepo extends JpaRepository<AddressTravel, Long> {
@@ -16,4 +19,8 @@ public interface AddressTravelRepo extends JpaRepository<AddressTravel, Long> {
                                  @Param("address") String address,
                                  @Param("status") int status,
                                  @Param("category") String categoryCode);
+
+    List<AddressTravel> findByParentIdAndStatus(long pid, int status);
+
+    Optional<AddressTravel> findByIdAndStatus(long id, int status);
 }

@@ -1,6 +1,6 @@
 package com.service.FoodAndTravel.Controller;
 
-import com.service.FoodAndTravel.Model.Food;
+import com.service.FoodAndTravel.Model.Food.Food;
 import com.service.FoodAndTravel.Service.FoodService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

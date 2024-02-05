@@ -1,5 +1,6 @@
-package com.service.FoodAndTravel.Model;
+package com.service.FoodAndTravel.Model.Food;
 
+import com.service.FoodAndTravel.Model.Base;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
-public class Category extends Base{
+public class Food extends Base {
+    private String category;
     private String name;
-    private String code;
+    private long parentId;
+    private String image;
+    private String description;
 }
