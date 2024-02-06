@@ -63,7 +63,8 @@ public class AddressTravelService extends BaseService<AddressTravelRepo, Address
         } else {
             result.setDetail(null);
         }
-        return getChild(result);
+        result.setChildren(getChild(result));
+        return result;
     }
 
     public List<AddressTravelDTO> getChild(AddressTravelDTO addressTravel){
