@@ -9,10 +9,8 @@ import com.service.FoodAndTravel.Model.Travel.AddressTravel;
 import com.service.FoodAndTravel.Reponsitory.TravelReponsitory.AddressDetailRepo;
 import com.service.FoodAndTravel.Reponsitory.TravelReponsitory.AddressTravelRepo;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,13 +20,13 @@ import java.util.List;
 @Transactional
 public class AddressTravelService extends BaseService<AddressTravelRepo, AddressTravel> {
 
-    @Autowired
-    private AddressTravelRepo repo;
-    @Autowired
-    private AddressDetailRepo addressDetailRepo;
+    private final AddressTravelRepo repo;
+    private final AddressDetailRepo addressDetailRepo;
 
-    public AddressTravelService(AddressTravelRepo addressTravelRepo) {
+    public AddressTravelService(AddressTravelRepo addressTravelRepo, AddressTravelRepo repo, AddressDetailRepo addressDetailRepo) {
         super(addressTravelRepo);
+        this.repo = repo;
+        this.addressDetailRepo = addressDetailRepo;
     }
 
     @Override
