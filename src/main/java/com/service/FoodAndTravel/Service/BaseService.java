@@ -18,8 +18,7 @@ public abstract class BaseService<Repo extends JpaRepository<Obj, Long>, Obj ext
 
     public List<Obj> getAll() {
         try {
-            List<Obj> list = this.repo.findAll();
-            return list;
+            return this.repo.findAll();
         } catch (Exception e) {
             System.out.println(e);
             return null;
