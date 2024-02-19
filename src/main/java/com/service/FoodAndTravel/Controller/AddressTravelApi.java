@@ -1,7 +1,7 @@
 package com.service.FoodAndTravel.Controller;
 
 import com.service.FoodAndTravel.Model.Travel.AddressTravel;
-import com.service.FoodAndTravel.Service.AddressTravelService;
+import com.service.FoodAndTravel.Service.TravelService.AddressTravelService;
 import org.springframework.web.bind.annotation.*;
 
 

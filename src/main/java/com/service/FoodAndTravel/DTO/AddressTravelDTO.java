@@ -15,8 +15,8 @@ public class AddressTravelDTO extends BaseDTO {
     private String image;
     private String name;
     private long parentId;
-    private int status;
     private String category;
     private AddressDetailDTO detail;
     private List<AddressTravelDTO> children;
+    private long likeNumber;
 }
