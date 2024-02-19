@@ -1,4 +1,4 @@
-package com.service.FoodAndTravel.Service;
+package com.service.FoodAndTravel.Service.TravelService;
 
 import com.service.FoodAndTravel.Config.PersonalException;
 import com.service.FoodAndTravel.Constants.Constants;
@@ -6,8 +6,10 @@ import com.service.FoodAndTravel.DTO.AddressDetailDTO;
 import com.service.FoodAndTravel.DTO.AddressTravelDTO;
 import com.service.FoodAndTravel.Model.Travel.AddressDetail;
 import com.service.FoodAndTravel.Model.Travel.AddressTravel;
+import com.service.FoodAndTravel.Reponsitory.LikeNumberRepo;
 import com.service.FoodAndTravel.Reponsitory.TravelReponsitory.AddressDetailRepo;
 import com.service.FoodAndTravel.Reponsitory.TravelReponsitory.AddressTravelRepo;
+import com.service.FoodAndTravel.Service.BaseService;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +24,13 @@ public class AddressTravelService extends BaseService<AddressTravelRepo, Address
 
     private final AddressTravelRepo repo;
     private final AddressDetailRepo addressDetailRepo;
+    private final LikeNumberRepo likeNumberRepo;
 
-    public AddressTravelService(AddressTravelRepo addressTravelRepo, AddressTravelRepo repo, AddressDetailRepo addressDetailRepo) {
+    public AddressTravelService(AddressTravelRepo addressTravelRepo, AddressTravelRepo repo, AddressDetailRepo addressDetailRepo, LikeNumberRepo likeNumberRepo) {
         super(addressTravelRepo);
         this.repo = repo;
         this.addressDetailRepo = addressDetailRepo;
+        this.likeNumberRepo = likeNumberRepo;
     }
 
     @Override
@@ -62,6 +66,8 @@ public class AddressTravelService extends BaseService<AddressTravelRepo, Address
             result.setDetail(null);
         }
         result.setChildren(getChild(result));
+        long likeNumber = likeNumberRepo.getLikeNumberByEntityAndCategory(result.getId(), Constants.Category.FOOD.toString());
+        result.setLikeNumber(likeNumber);
         return result;
     }
 
@@ -82,6 +88,8 @@ public class AddressTravelService extends BaseService<AddressTravelRepo, Address
                     addressTravelDTO.setDetail(null);
                 }
                 addressTravelDTO.setChildren(children);
+                long likeNumber = likeNumberRepo.getLikeNumberByEntityAndCategory(addressTravelDTO.getId(), Constants.Category.FOOD.toString());
+                addressTravelDTO.setLikeNumber(likeNumber);
                 addressTravelDTOS.add(addressTravelDTO);
             });
         }
